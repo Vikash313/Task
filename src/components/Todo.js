@@ -4,7 +4,6 @@ import { useHistory } from 'react-router';
 
 const getLocaleItems = () => {
     let list = localStorage.getItem('lists');
-    console.log("listdata", list);
     if(list){
         return JSON.parse(localStorage.getItem('lists'));
     } else {
@@ -78,12 +77,11 @@ const  Todo = () => {
     }
 
 
-
+// store data to locale storage
     useEffect(() => {
-        localStorage.getItem(JSON.stringify(items))
+        localStorage.setItem('lists', JSON.stringify(items))
       }, [items])
 
-      console.log("localeData", localStorage.getItem(JSON.stringify(items)));
 
     return (
         <div>
